@@ -5,23 +5,22 @@ import useResults from '../hooks/useResults';
 import MovieList from '../components/MovieList';
 
 const MoviesScreen = ({navigation}) => {
-  const [results] = useResults();
-  const [movies, setMovies] = useState(results);
-  console.log(results);
-  console.log(movies);
-
+  const [results, setResults] = useResults();
   const favoriteMovie = id => {
-    setMovies(
-      movies.map(movie => {
+    console.log('here');
+    console.log(id);
+    setResults(
+      results.map(movie => {
         return movie.id === id ? {...movie, favorite: !movie.favorite} : movie;
       }),
     );
+    console.log(results);
   };
   return (
     <SafeAreaView>
       <View>
         <MovieList
-          movies={movies}
+          movies={results}
           favoriteMovie={id => favoriteMovie(id)}
           navigation={navigation}
         />

@@ -25,5 +25,5 @@ export default () => {
     apiFetch();
   }, []);
 
-  return [results];
+  return [results, setResults];
 };

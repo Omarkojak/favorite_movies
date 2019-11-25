@@ -12,9 +12,14 @@ const ShowScreen = ({navigation}) => {
         <Text>{title}</Text>
         <Text>{releaseYear}</Text>
       </View>
-      {favorite ? (
+      {!favorite ? (
         <Button title="Add to favorites" onPress={() => favoriteMovie(id)} />
-      ) : null}
+      ) : (
+        <Button
+          title="Remove from favorites"
+          onPress={() => favoriteMovie(id)}
+        />
+      )}
     </View>
   );
 };
